@@ -1,1 +1,1 @@
-Implementando flujo básico de Login + MFA
+Implementando flujo básico de Login + MFA.
