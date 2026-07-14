@@ -1,0 +1,19 @@
+{
+  "name": "git-class-demo",
+  "version": "1.0.0",
+  "description": "Demostración de integración continua con GitHub Actions",
+  "main": "app.js",
+  "scripts": {
+    "test": "node test.js",
+    "build": "node build.js",
+    "ci": "npm test && npm run build"
+  },
+  "keywords": [
+    "git",
+    "github",
+    "ci",
+    "github-actions"
+  ],
+  "author": "UNIR - Prof. Carlos M Martinez",
+  "license": "MIT"
+}
