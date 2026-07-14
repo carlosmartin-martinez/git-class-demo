@@ -1,0 +1,39 @@
+name: Pipeline de Integración Continua
+on:
+  push:
+    branches:
+      - main
+      - feature/ci-demo
+pull_request:
+    branches:
+      - main
+workflow_dispatch:
+jobs:
+  pruebas-y-construccion:
+    name: Probar y construir aplicación
+    runs-on: ubuntu-latest
+steps:
+      - name: 1. Descargar código del repositorio
+        uses: actions/checkout@v4
+- name: 2. Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+- name: 3. Mostrar versiones
+        run: |
+          node --version
+          npm --version
+- name: 4. Ejecutar pruebas automatizadas
+        run: npm test
+- name: 5. Construir aplicación
+        run: npm run build
+- name: 6. Mostrar archivos construidos
+        run: |
+          echo "Contenido del directorio dist:"
+          ls -la dist
+- name: 7. Guardar artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: aplicacion-web
+          path: dist/
+          retention-days: 7
